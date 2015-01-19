@@ -45,19 +45,21 @@ median(steps.day$steps)
 
 ```r
 steps.interval<-aggregate(steps~interval,df,mean,na.rm=TRUE)
-plot(steps.interval$steps,type = "l",main = "mean steps over intervals in a day", xlab = "interval", ylab = "mean steps")
+plot(steps~interval,steps.interval,type = "l",main = "mean steps over intervals in a day", xlab = "interval", ylab = "mean steps")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
-2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
+2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+
+The interval containing max steps
 
 ```r
-which.max(steps.interval$steps)
+steps.interval$interval[which.max(steps.interval$steps)]
 ```
 
 ```
-## [1] 104
+## [1] 835
 ```
 
 ## Imputing missing values
